@@ -1,5 +1,5 @@
-# XFastLayout
+# XQuickApp
 
-[![](https://jitpack.io/v/LiLiTaBaBa/XFastLayout.svg)](https://jitpack.io/#LiLiTaBaBa/XFastLayout)
+[![](https://jitpack.io/v/LiLiTaBaBa/XQuickApp.svg)](https://jitpack.io/#LiLiTaBaBa/XQuickApp)
 
-### 快速构建日常使用的View以及ViewGroup   
+### 快速构建App应用  
