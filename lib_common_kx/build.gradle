@@ -147,6 +147,20 @@ dependencies {
     api 'com.foundation.app:activity-fragment:1.1.1'
     api 'com.foundation.widget:convenient-recyclerview-adapter:1.1.1'
     api 'com.foundation.widget:view-binding-helper:1.0.6'
+
+    //图片压缩 libjpeg luban
+    api "com.github.nanchen2251:CompressHelper:1.0.5"
+    api "top.zibin:Luban:1.1.8"
+    // Logger打印
+    api "com.orhanobut:logger:2.1.1"
+    //编码工具类用到
+    implementation files('libs/BASE64Decoder.jar')
+    //Webservice网络工具类用到
+    implementation files('libs/ksoap2-android-assembly-3.3.0-jar-with-dependencies.jar')
+    //gson
+    api 'com.google.code.gson:gson:2.10.1'
+
+
 }
 
 task generateSourcesJar(type: Jar){

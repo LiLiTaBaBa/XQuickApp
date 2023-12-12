@@ -1,4 +1,154 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="loading">正在加载中...</string>
+    <string name="cancel">取消</string>
+    <string name="confirm">确认</string>
+    <!-- APP提示用语 -->
+    <string name="sys_network_error">请检查网络连接是否正常</string>
+    <string name="sys_exit_tip">再按一次退出程序</string>
+    <string-array name="adBlockUrl">
+        <item>div-gpt-ad-1443488528500-4</item>
+        <item>div-gpt-ad-1443727656867-1</item>
+        <item>div-gpt-ad-1443488528500-5</item>
+        <item>div-gpt-ad-1443488528500-6</item>
+        <item>div-gpt-ad-1443488528500-7</item>
+        <item>div-gpt-ad-1443727656867-0</item>
+        <item>div-gpt-ad-1443488528500-2</item>
+        <item>div-gpt-ad-1443488528500-3</item>
+        <item>div-gpt-ad-1443488528500-1</item>
+                
+        <item>ubmcmm.baidustatic.com</item>
+                
+        <item>cpro2.baidustatic.com</item>
+                
+        <item>cpro.baidustatic.com</item>
+                
+        <item>s.lianmeng.360.cn</item>
+                
+        <item>nsclick.baidu.com</item>
+                
+        <item>pos.baidu.com</item>
+                
+        <item>cbjs.baidu.com</item>
+                
+        <item>cpro.baidu.com</item>
+                
+        <item>images.sohu.com/cs/jsfile/js/c.js</item>
+                
+        <item>union.sogou.com/</item>
+                
+        <item>sogou.com/</item>
+                
+        <item>a.baidu.com</item>
+                
+        <item>c.baidu.com</item>
+        <item>com.qq.e.ads</item>
+
+
+        <item>com.vpon.adon.android.WebInApp</item>
+        <item>com.google.ads</item>
+        <item>com.google.android.gms.ads</item>
+        <item>com.mobisage.android</item>
+        <item>com.adchina.android.ads.views</item>
+        <item>com.mt.airad.MultiAD</item>
+        <item>com.greystripe.android.sdk</item>
+        <item>com.mdotm.android.ads</item>
+        <item>com.millennialmedia.android</item>
+        <item>com.mt.airad.MultiAD</item>
+        <item>com.inmobi.androidsdk</item>
+        <item>cn.aduu.adsdk</item>
+        <item>com.donson.momark</item>
+        <item>com.doumob.main</item>
+        <item>com.iadpush.adp.IA</item>
+        <item>cn.appmedia.ad</item>
+        <item>com.zestadz.android</item>
+        <item>com.smaato.SOMA</item>
+        <item>com.l.adlib_android</item>
+        <item>com.energysource.szj</item>
+        <item>net.cavas.show</item>
+        <item>com.adsmogo.adview</item>
+        <item>com.lmmob.ad.sdk</item>
+        <item>com.lmmob.sdk</item>
+        <item>com.mobisage.android</item>
+        <item>net.youmi.android</item>
+        <item>net.youmi.toolkit.android</item>
+        <item>cn.domob.android.ads</item>
+        <item>com.adwo.adsdk</item>
+        <item>com.winad.android.ads</item>
+        <item>com.winad.android.wall</item>
+        <item>com.winad.android.adwall.push</item>
+        <item>com.wiyun.common</item>
+        <item>com.wiyun.offer</item>
+        <item>com.wooboo.adlib_android</item>
+        <item>com.tencent.mobwin</item>
+        <item>com.baidu.mobads</item>
+        <item>com.umengAd.android</item>
+        <item>com.fractalist.sdk.base.sys</item>
+        <item>net.miidi.ad.wall</item>
+        <item>net.miidi.ad.banner</item>
+        <item>com.suizong.mobplate.ads</item>
+        <item>com.telead.adlib_android</item>
+        <item>com.telead.adlib.adwall</item>
+        <item>com.l.adlib_android</item>
+        <item>com.mobile.app.adlist</item>
+        <item>com.mobile.app.adpush</item>
+        <item>com.adzhidian.view</item>
+        <item>com.huawei.hiad.core</item>
+        <item>cn.aduu.adsdk</item>
+        <item>com.izp</item>
+        <item>com.waps.OffersWebView</item>
+        <item>com.adsmogo.offers.adapters</item>
+        <item>com.bypush</item>
+        <item>com.dianle</item>
+        <item>com.yjfsdk.advertSdk</item>
+        <item>com.juzi.main</item>
+        <item>com.etonenet.pointwall</item>
+        <item>com.kuguo.ad</item>
+        <item>com.kuguo.pushads</item>
+        <item>com.dianru.push</item>
+        <item>com.longmob.service</item>
+        <item>com.dianru.sdk</item>
+        <item>com.nd.dianjin.activity</item>
+        <item>com.nd.dianjin.service</item>
+        <item>com.snowfish.cn</item>
+        <item>cn.ganga.offline.cn</item>
+        <item>cn.casee</item>
+        <item>com.wqmobile</item>
+        <item>com.ignitevision.android</item>
+        <item>com.mobisage</item>
+        <item>com.iflytek.voiceads</item>
+        <item>com.qq.e.ads</item>
+
+        <item>ubmcmm.baidustatic.com</item>
+        <item>gss1.bdstatic.com/</item>
+        <item>cpro2.baidustatic.com</item>
+        <item>cpro.baidustatic.com</item>
+        <item>lianmeng.360.cn</item>
+        <item>nsclick.baidu.com</item>
+        <item>caclick.baidu.com/</item>
+        <item>jieaogd.com</item>
+        <item>publish-pic-cpu.baidu.com/</item>
+        <item>cpro.baidustatic.com/</item>
+        <item>hao61.net/</item>
+        <item>cpu.baidu.com/</item>
+        <item>pos.baidu.com</item>
+        <item>cbjs.baidu.com</item>
+        <item>cpro.baidu.com</item>
+        <item>images.sohu.com/cs/jsfile/js/c.js</item>
+        <item>union.sogou.com/</item>
+        <item>sogou.com/</item>
+        <item>5txs.cn/</item>
+        <item>liuzhi520.com/</item>
+        <item>yhzm.cc/</item>
+        <item>jieaogd.com</item>
+        <item>a.baidu.com</item>
+        <item>c.baidu.com</item>
+        <item>mlnbike.com</item>
+        <item>alipays://platformapi</item>
+        <item>alipay.com/</item>
+        <item>jieaogd.com</item>
+        <item>vipshop.com</item>
+
+         
+    </string-array>
 </resources>
