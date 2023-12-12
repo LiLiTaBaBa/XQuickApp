@@ -1,0 +1,202 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+import java.text.SimpleDateFormat
+
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+/**获取今日日期*/
+static def getTodayVersionCode(){
+    Date date=new Date()
+    SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyy-MM-dd")
+    String versionCode=simpleDateFormat.format(date)
+    return Integer.parseInt(versionCode.replace("-",""))
+}
+
+buildscript {
+    ext.kotlin_version = '1.6.21'
+    repositories {
+        google()
+        mavenCentral()
+        maven { url "https://maven.aliyun.com/nexus/content/groups/public/"}
+        maven { url "https://maven.aliyun.com/nexus/content/repositories/releases/"}
+        maven { url "https://maven.aliyun.com/repository/google"}
+        maven { url "https://jitpack.io" }
+        maven { url "https://maven.aliyun.com/repository/jcenter/" }
+        maven { url "https://maven.aliyun.com/repository/central/" }
+        maven { url "https://developer.huawei.com/repo/" }
+//        maven { url "https://storage.googleapis.com/download.flutter.io" }
+        maven {
+            url "https://packages.aliyun.com/maven/repository/2196753-release-jjUEtd/"
+            credentials {
+                username = "642b9f209f62bf75b33fc1ae"
+                password = "EkNR7ao]bCHh"
+            }
+        }
+        mavenLocal()
+        maven {
+            allowInsecureProtocol = true
+            url 'http://localhost/nexus/content/groups/public/'
+        }
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:7.0.4'
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+/**扩展参数*/
+ext{
+    compileSdkVersion=33
+    applicationId="com.example.xquickapp"
+    minSdkVersion=21
+    targetSdkVersion=33
+    versionCode=getTodayVersionCode()
+    versionName="1.0.0"
+}
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        maven { url "https://maven.aliyun.com/nexus/content/groups/public/"}
+        maven { url "https://maven.aliyun.com/nexus/content/repositories/releases/"}
+        maven { url "https://maven.aliyun.com/repository/google"}
+        maven { url "https://jitpack.io" }
+        maven { url "https://maven.aliyun.com/repository/jcenter/" }
+        maven { url "https://maven.aliyun.com/repository/central/" }
+        maven { url "https://developer.huawei.com/repo/" }
+//        maven { url "https://storage.googleapis.com/download.flutter.io" }
+        maven {
+            url "https://packages.aliyun.com/maven/repository/2196753-release-jjUEtd/"
+            credentials {
+                username = "642b9f209f62bf75b33fc1ae"
+                password = "EkNR7ao]bCHh"
+            }
+        }
+        mavenLocal()
+        maven {
+            allowInsecureProtocol = true
+            url 'http://localhost/nexus/content/groups/public/'
+        }
+    }
+}
+
+/**清除文件*/
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+/**打包APK脚本*/
+task assembleRelease{
+    dependsOn('app:assembleRelease')
+}
+
+/**打包APK脚本*/
+task assembleDebug{
+    dependsOn('app:assembleDebug')
+}
+
+/**加固apk文件*/
+task jiagu{
+    dependsOn('app:assemble360jiagu')
+}
+
+/**复制APK包文件到桌面*/
+task copyApk(type: Copy){
+    from "${getApkPath()}"
+    into 'C:\\Users\\Administrator\\Desktop'
+}
+
+task oneKeyPackaging{
+    doLast {
+        println("一键打包完成")
+    }
+}
+
+//oneKeyPackaging.dependsOn copyApk
+//copyApk.dependsOn jiagu
+//jiagu.dependsOn assembleRelease
+//assembleRelease.dependsOn clean
+
+/**指定多个task依赖*/
+task packaging(dependsOn: [copyApk,jiagu,assembleRelease, clean]) {
+    doLast {
+        println("结束打包...")
+        //使用加固工具加固APK文件
+
+    }
+}
+
+/**获取编译的类型正式还是测试*/
+def getBuildType() {
+    Gradle gradle = getGradle()
+    String args = gradle.getStartParameter().getTaskRequests().toString()
+    if (args.contains("assembleRelease")) {
+        return "release"
+    } else if (args.contains("assembleDebug")) {
+        return "debug"
+    }
+    return "release"
+}
+
+/**获取apk目录地址*/
+def getApkPath() {
+    String buildType = getBuildType().toLowerCase()
+    String apkName=""
+    File parent
+    if(buildType == "debug"){
+        parent=new File("${projectDir.absolutePath}/app/build/outputs/apk/debug")
+    }else{
+        parent=new File("${projectDir.absolutePath}/app/build/outputs/apk/release")
+    }
+    File[] files=parent.listFiles()
+    for (File file : files){
+        if(file.name.endsWith(".apk")){
+            apkName=file.name
+            break
+        }
+    }
+    return new File(projectDir, "app/build/outputs/apk/${buildType}/${apkName}").absolutePath
+}
+
+/**Git上传的信息*/
+static def getGitLog() {
+    return 'git log --pretty=format:"%s___in___%ad___by___%an"-10 --date=format:%c'.execute().text
+}
+
+/**上传蒲公英的脚本*/
+task pgyer(type: Exec) {
+    //自己在蒲公英申请的账号的apkKey
+    String apiKey = "f4cc43f6797a678a94a719ca9a68667d"
+    String userKey = "abd7448ff96767d6d6cb668dab20e5db"
+    String desc = getGitLog()
+    if (project.hasProperty("pgyerDesc")) {
+        desc = pgyerDesc + "\n" + desc
+    }
+    if (desc == null || desc.isEmpty()) {
+        desc = "there is nothing"
+    }
+    println(getApkPath())
+    commandLine 'curl'
+    args  'https://www.pgyer.com/apiv2/app/upload',
+            '-H', "Content-Type: multipart/form-data",
+            //'-F', "uKey=${userKey}",
+            '-F', "_api_key=${apiKey}",
+            // '-F', "file=@${getApkPath()}",
+            '-F', "updateDescription=${desc}",'-i'
+    //获取二维码的图片地址
+}
+
+/**打开windows中的笔记本软件*/
+task openNotepad(type: Exec) {
+    commandLine 'notepad'
+}
+
+task test{
+    doLast {
+        println(getApkPath())
+    }
+}
+
